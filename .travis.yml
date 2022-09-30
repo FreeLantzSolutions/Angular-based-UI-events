@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+- '0.12'
+git:
+  depth: 10
+before_install:
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- npm install -qg bower gulp-cli
+- npm install -q
+- bower install --force
+- bower install --force
+script: gulp
+deploy:
+  provider: npm
+  email: adrien.crivelli@gmail.com
+  api_key:
+    secure: BYVsyvXvhT2v0a0Fx6w8f0m4hoUjAczrutcQYy3TN6dyprdveeDzeT5iTOhfUI6nSigKSfA2VTkpoFClGkSVILRfPuGIuO4efHSRuJzFwT6kj/+/0eKs/UNakCsjHtdI1Do74DL6OEbIst1BxVM2lXYImwOSCd/fpzAHezCD1rOzAnem9AfuNhj3EiRws98l4hvsIS1AV0bcU2R7rbOpOltclUK2cQWst4JpXmvQ+wmOuJ///2ipdJCTAG7tl22VfZZVJCPyIzkfKv2FoNIVmR+j4rAlwNPOEes7Cca1hqQOIILNdLkeQRwwoeEb5fK/uVBgAsobuv6pCwQlLx1VP6HT/ytLDgowD7q19dmNzUx6WhiMZEmPD0u9f1XDc/Nyk/jyv2Rn/Hs4FaCyQvCiQft0j0amxYIAqmia/8OGxcmaQgV+J0eBt8oKnKGsI4dseCtelMtGqsPOuYO+7wg3M+z5h+aGE34xuzJZnB7Jbxdhbul/WpPGJnZ55o5y+/UT1mx9aIZDs/6zPZA9+kg6Hk1dspjXyMHR1WGiUmeqvhlzPFwkUblFpx/lUyI0GJ76wiI3KiOvAlqn+A2j4qp+v2i3clQeCStpa3oFov9kjQZKM5d3hOC/KPP1IN66Y4TnEw9j4GEA00ob0j2/BIeK3UylW3qagYTGAz5EJiukzzQ=
+  on:
+    tags: true
+    repo: angular-ui/ui-event
